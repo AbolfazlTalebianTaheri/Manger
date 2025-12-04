@@ -26,9 +26,10 @@ namespace Mnager
             {
                 txtFirstName.Text = Person.FirstName;
                 txtLastName.Text = Person.LastName;
-                txtNationalCode.Text= Person.NationalCode;
+                txtNationalCode.Text = Person.NationalCode;
                 if (Person.Gender == Genders.Man)
                     rdbMan.Checked = true;
+                else
                 if (Person.Gender == Genders.WoMan)
                     rdbWoMan.Checked = true;
                 else
@@ -69,6 +70,7 @@ namespace Mnager
                 Person.NationalCode = nationalCode;
                 if (rdbMan.Checked)
                     Person.Gender = Genders.Man;
+                else
                 if (rdbWoMan.Checked)
                     Person.Gender = Genders.WoMan;
                 else
