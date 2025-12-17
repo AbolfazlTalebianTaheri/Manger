@@ -13,7 +13,7 @@ namespace Mnager
         public string LastName { get; set; }
         public string NationalCode { get; set; }
         public Genders Gender { get; set; }
-        public string GetFullName
+        public virtual string GetFullName
         {
             get
             {

@@ -18,7 +18,10 @@ namespace Mnager
         {
             return persons;
         }
-
+        public int Count()
+        {
+            return persons.Count;
+        }
         public void RemovePerson(Person person)
         {
             persons.Remove(person);

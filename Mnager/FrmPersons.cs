@@ -21,7 +21,11 @@ namespace Mnager
         }
         void FillDgV()
         {
-            dgvPerson.DataSource = personManger.GetPerson().ToList();
+            List<Person> persons = personManger.GetPerson().ToList();
+            int count = personManger.Count();
+            for (int i = 0; i < count; i++)
+                persons[i].Id = i;
+            dgvPerson.DataSource = persons.ToList();
         }
         private void FrmPersons_Load(object sender, EventArgs e)
         {
@@ -31,10 +35,9 @@ namespace Mnager
         private void FrmPersons_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult checkExit = AlertHelper.Question("آیا از خروج مطمِن هستید");
-            if (checkExit == DialogResult.Yes)
-                Application.Exit();
-            else
+            if (checkExit == DialogResult.No)
                 e.Cancel = true;
+            DialogResult = DialogResult.OK;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -42,9 +45,16 @@ namespace Mnager
             FrmPerson frmPerson = new FrmPerson{
                 Text = "Add Person"
             };
-            if (frmPerson.ShowDialog() == DialogResult.OK)
+            frmPerson.OnFillDgv += FrmPerson_OnFillDgv;
+            frmPerson.ShowDialog();
                 FillDgV();
         }
+
+        private void FrmPerson_OnFillDgv()
+        {
+            FillDgV();
+        }
+
         private void dgvPerson_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -71,6 +81,7 @@ namespace Mnager
                     Text = $"Edite {person.GetFullName}",
                     Person = person
                 };
+                frmPerson.OnFillDgv += FrmPerson_OnFillDgv;
                 if(frmPerson.ShowDialog() == DialogResult.OK)
                     FillDgV();
             }

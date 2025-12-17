@@ -19,8 +19,19 @@ namespace Mnager
 
         private void btnPerson_Click(object sender, EventArgs e)
         {
-            new FrmPersons().Show();
+            var frmPersons = new FrmPersons();
             this.Hide();
+            if (frmPersons.ShowDialog() == DialogResult.OK)
+                Application.Exit();
+        }
+        
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            var frmStudent = new FrmStudents();
+            this.Hide();
+            if (frmStudent.ShowDialog() == DialogResult.OK)
+                Application.Exit();
         }
     }
 }

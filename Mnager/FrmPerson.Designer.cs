@@ -149,7 +149,7 @@
             this.btnConf.Text = "تایید";
             this.btnConf.UseVisualStyleBackColor = true;
             this.btnConf.Click += new System.EventHandler(this.btnConf_Click);
-            // 
+            //
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;

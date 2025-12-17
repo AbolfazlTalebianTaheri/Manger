@@ -12,6 +12,8 @@ namespace Mnager
 {
     public partial class FrmPerson : Form
     {
+        public delegate void FillDgv();
+        public event FillDgv OnFillDgv; // اسم رو ود هوش مصنوعی پیشنهاد داد
         PersonManger personManger;
         public Person Person { get; set; }
         public FrmPerson()
@@ -47,7 +49,7 @@ namespace Mnager
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult ca = AlertHelper.Question("از لغو تغیرات مطمِن هستید ؟");
+            DialogResult ca = AlertHelper.Question("از صرف نظر کردن مطمِن هستید ؟");
             if (ca == DialogResult.Yes)
                 this.Close();
         }
@@ -77,9 +79,16 @@ namespace Mnager
                     Person.Gender = Genders.Unknown;
                 if (!isEdite)
                     personManger.Add(Person);
-                DialogResult = DialogResult.OK;
                 MessageBox.Show(operionResult.Message);
                 TxtClear();
+                OnFillDgv();
+                if (!isEdite)
+                {
+                    Person = null;
+                    txtFirstName.Focus();
+                }
+                else
+                    DialogResult = DialogResult.OK;
             }
             else
                 MessageBox.Show(operionResult.Message);
