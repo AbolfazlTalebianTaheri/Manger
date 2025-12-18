@@ -1,6 +1,6 @@
 ﻿namespace Mnager
 {
-    partial class FrmStudents
+    partial class FrmTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnViewTeacher = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.dgvTeacher = new System.Windows.Forms.DataGridView();
             this.ColFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenderTxt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,16 +38,16 @@
             this.NationalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStudentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhonNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocatioan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStudy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -60,42 +59,31 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnViewTeacher);
             this.splitContainer1.Panel1.Controls.Add(this.btnAdd);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgvStudent);
-            this.splitContainer1.Size = new System.Drawing.Size(570, 442);
-            this.splitContainer1.SplitterDistance = 113;
+            this.splitContainer1.Panel2.Controls.Add(this.dgvTeacher);
+            this.splitContainer1.Size = new System.Drawing.Size(647, 447);
+            this.splitContainer1.SplitterDistance = 100;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // btnViewTeacher
-            // 
-            this.btnViewTeacher.Location = new System.Drawing.Point(455, 31);
-            this.btnViewTeacher.Name = "btnViewTeacher";
-            this.btnViewTeacher.Size = new System.Drawing.Size(103, 58);
-            this.btnViewTeacher.TabIndex = 0;
-            this.btnViewTeacher.Text = "نمایش معلم ها";
-            this.btnViewTeacher.UseVisualStyleBackColor = true;
-            this.btnViewTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(22, 31);
+            this.btnAdd.Location = new System.Drawing.Point(22, 22);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 58);
-            this.btnAdd.TabIndex = 0;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "اضافه کردن";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // dgvStudent
+            // dgvTeacher
             // 
-            this.dgvStudent.AllowUserToAddRows = false;
-            this.dgvStudent.AllowUserToDeleteRows = false;
-            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTeacher.AllowUserToAddRows = false;
+            this.dgvTeacher.AllowUserToDeleteRows = false;
+            this.dgvTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColFirstName,
             this.Gender,
             this.GenderTxt,
@@ -103,20 +91,20 @@
             this.NationalCode,
             this.ColLastName,
             this.ColStudent,
-            this.ColStudentCode,
-            this.ColGrade,
-            this.Grade,
+            this.colPhonNumber,
+            this.colLocatioan,
+            this.colStudy,
             this.ColEdit,
             this.ColDelete});
-            this.dgvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStudent.Location = new System.Drawing.Point(0, 0);
-            this.dgvStudent.Name = "dgvStudent";
-            this.dgvStudent.ReadOnly = true;
-            this.dgvStudent.RowHeadersWidth = 51;
-            this.dgvStudent.RowTemplate.Height = 24;
-            this.dgvStudent.Size = new System.Drawing.Size(570, 325);
-            this.dgvStudent.TabIndex = 0;
-            this.dgvStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellContentClick);
+            this.dgvTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTeacher.Location = new System.Drawing.Point(0, 0);
+            this.dgvTeacher.Name = "dgvTeacher";
+            this.dgvTeacher.ReadOnly = true;
+            this.dgvTeacher.RowHeadersWidth = 51;
+            this.dgvTeacher.RowTemplate.Height = 24;
+            this.dgvTeacher.Size = new System.Drawing.Size(647, 343);
+            this.dgvTeacher.TabIndex = 1;
+            this.dgvTeacher.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeacher_CellContentClick);
             // 
             // ColFirstName
             // 
@@ -165,7 +153,6 @@
             this.NationalCode.MinimumWidth = 6;
             this.NationalCode.Name = "NationalCode";
             this.NationalCode.ReadOnly = true;
-            this.NationalCode.Visible = false;
             this.NationalCode.Width = 125;
             // 
             // ColLastName
@@ -182,39 +169,38 @@
             // 
             this.ColStudent.DataPropertyName = "GetFullName";
             this.ColStudent.FillWeight = 140F;
-            this.ColStudent.HeaderText = "نام دانش آموزش";
+            this.ColStudent.HeaderText = "نام معلم";
             this.ColStudent.MinimumWidth = 6;
             this.ColStudent.Name = "ColStudent";
             this.ColStudent.ReadOnly = true;
             this.ColStudent.Width = 110;
             // 
-            // ColStudentCode
+            // colPhonNumber
             // 
-            this.ColStudentCode.DataPropertyName = "StudentCode";
-            this.ColStudentCode.HeaderText = "کد دانش آموزی";
-            this.ColStudentCode.MinimumWidth = 6;
-            this.ColStudentCode.Name = "ColStudentCode";
-            this.ColStudentCode.ReadOnly = true;
-            this.ColStudentCode.Width = 90;
+            this.colPhonNumber.DataPropertyName = "PhonNumber";
+            this.colPhonNumber.HeaderText = "تلفن همراه";
+            this.colPhonNumber.MinimumWidth = 6;
+            this.colPhonNumber.Name = "colPhonNumber";
+            this.colPhonNumber.ReadOnly = true;
+            this.colPhonNumber.Width = 80;
             // 
-            // ColGrade
+            // colLocatioan
             // 
-            this.ColGrade.DataPropertyName = "GetGrade";
-            this.ColGrade.HeaderText = "مقطع تحصیلی";
-            this.ColGrade.MinimumWidth = 6;
-            this.ColGrade.Name = "ColGrade";
-            this.ColGrade.ReadOnly = true;
-            this.ColGrade.Width = 70;
+            this.colLocatioan.DataPropertyName = "Locatioan";
+            this.colLocatioan.HeaderText = "آدرس";
+            this.colLocatioan.MinimumWidth = 6;
+            this.colLocatioan.Name = "colLocatioan";
+            this.colLocatioan.ReadOnly = true;
+            this.colLocatioan.Width = 90;
             // 
-            // Grade
+            // colStudy
             // 
-            this.Grade.DataPropertyName = "Grade";
-            this.Grade.HeaderText = "Grades";
-            this.Grade.MinimumWidth = 6;
-            this.Grade.Name = "Grade";
-            this.Grade.ReadOnly = true;
-            this.Grade.Visible = false;
-            this.Grade.Width = 125;
+            this.colStudy.DataPropertyName = "Study";
+            this.colStudy.HeaderText = "رشته";
+            this.colStudy.MinimumWidth = 6;
+            this.colStudy.Name = "colStudy";
+            this.colStudy.ReadOnly = true;
+            this.colStudy.Width = 90;
             // 
             // ColEdit
             // 
@@ -232,23 +218,20 @@
             this.ColDelete.ReadOnly = true;
             this.ColDelete.Width = 45;
             // 
-            // FrmStudents
+            // FrmTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 442);
+            this.ClientSize = new System.Drawing.Size(647, 447);
             this.Controls.Add(this.splitContainer1);
-            this.MaximumSize = new System.Drawing.Size(600, 500);
-            this.MinimumSize = new System.Drawing.Size(580, 480);
-            this.Name = "FrmStudents";
+            this.Name = "FrmTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmStudents";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmStudents_FormClosing);
+            this.Text = "FrmTeacher";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,7 +239,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dgvStudent;
+        private System.Windows.Forms.DataGridView dgvTeacher;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColFirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
@@ -265,11 +248,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NationalCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColLastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhonNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLocatioan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStudy;
         private System.Windows.Forms.DataGridViewButtonColumn ColEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColDelete;
-        private System.Windows.Forms.Button btnViewTeacher;
     }
 }

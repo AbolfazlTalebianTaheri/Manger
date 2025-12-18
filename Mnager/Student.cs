@@ -3,18 +3,26 @@
     public class Student : Person
     {
         public int StudentCode { get; set; }
-        public string Grade { get; set; }
-        private string GetInformatioanStudent()
-        {
-            string name = FirstName;
-            string lastName = LastName;
-            string studentCode = StudentCode.ToString();
-            string grade = Grade;
-            return $"Name: {name} {lastName}, Student Code: {studentCode}, Grade: {grade}";
+        public Grades Grade { get; set; }
+        public string GetGrade { 
+            get
+            {
+                switch (Grade)
+                {
+                    case Grades.Elementary:
+                        return "ابتدایی";
+                    case Grades.Guidance:
+                        return "راهنمایی";
+                    case Grades.Conservatory:
+                        return "هنرستان";
+                    default:
+                        return "";
+                }
+            }
         }
         public override string ToString()
         {
-            return GetInformatioanStudent();
+            return $"Name: {FirstName} {LastName}, Student Code: {StudentCode}";
         }
         override public bool Equals(object obj)
         {
@@ -28,10 +36,10 @@
         {
             get
             {
-                return GetInformatioanStudent();
+                return $"{FirstName} {LastName}";
             }
         }
-        public static OperionResult IsValidinput(string firstName, string lastName)
+        public static OperionResult IsValidinput(string firstName, string lastName,string nationalCode)
         {
             if (string.IsNullOrEmpty(firstName))
                 return new OperionResult
@@ -45,6 +53,13 @@
                 {
                     IsSuccess = false,
                     Message = "کادر نام خوانوادگی را پرکنید"
+                };
+            else
+            if (string.IsNullOrEmpty(nationalCode))
+                return new OperionResult
+                {
+                    IsSuccess = false,
+                    Message = "کادر کد ملی را پرکنید"
                 };
             return new OperionResult
             {

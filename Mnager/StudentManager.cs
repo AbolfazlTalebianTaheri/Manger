@@ -21,8 +21,6 @@ namespace Mnager
         }
         public void Remove(int Index)
         {
-            DialogResult result = AlertHelper.Question("آیا از حذف مطمئن هستید ؟");
-            if(result ==DialogResult.OK)
             students.RemoveAt(Index);
         }
         public void Add(Student student)
@@ -33,6 +31,18 @@ namespace Mnager
         {
             int index = students.IndexOf(student);
             students[index] = student;
+        }
+        public bool Duplicate(string firstName ,string lastName)
+        {
+            for (int i = 0; i < students.Count; i++)
+                if (students[i].FirstName == firstName)
+                    if (students[i].LastName == lastName)
+                        return false;
+            return true;
+        }
+        public int Count()
+        {
+            return students.Count;
         }
     }
 }

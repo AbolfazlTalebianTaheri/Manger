@@ -62,6 +62,7 @@
             this.MaximumSize = new System.Drawing.Size(380, 263);
             this.MinimumSize = new System.Drawing.Size(380, 263);
             this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
             this.ResumeLayout(false);
 
