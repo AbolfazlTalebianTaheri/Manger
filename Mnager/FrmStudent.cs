@@ -14,11 +14,13 @@ namespace Mnager
     public partial class FrmStudent : Form
     {
         public Student student { get; set; }
-        StudentManager StudentManager;
-        public FrmStudent()
+        StudentManager studentManager;
+        Action _action;
+        public FrmStudent(Action action)
         {
             InitializeComponent();
-            StudentManager = new StudentManager();
+            studentManager = new StudentManager();
+            _action = action;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -39,13 +41,40 @@ namespace Mnager
             OperionResult operionResult = Student.IsValidinput(firstName, lastName);
             if (operionResult.IsSuccess)
             {
-                student.FirstName = firstName;
-                student.LastName = lastName;
-                if (!isEdit)
-                    StudentManager.Add(student);
+                bool isFind = studentManager.IsFindStudent(firstName,lastName);
+                if (isFind)
+                {
+                    student.FirstName = firstName;
+                    student.LastName = lastName;
+                    if (rdbElementary.Checked)
+                        student.Grade = Grades.Elementary;
+                    else if (rdbGuidance.Checked)
+                        student.Grade = Grades.Guidance;
+                    else if (rdbConservatory.Checked)
+                        student.Grade = Grades.Conservatory;
+
+                    if (!isEdit)
+                    {
+                        studentManager.Add(student);
+                        txtFirstName.Clear();
+                        txtLastName.Clear();
+                        txtFirstName.Focus();
+                    }
+                    else
+                    {
+                        studentManager.Edit(student);
+                        this.Close();
+                    }
+                    if (_action != null)
+                        _action();
+                    student = null;
+                    MessageBox.Show(operionResult.Message);
+                }
                 else
-                    StudentManager.Edit(student);
-                MessageBox.Show(operionResult.Message);
+                {
+                    MessageBox.Show("این دانش آموزش قبلا در سامانه ثبت شده است !");
+                    student = null;
+                }
             }
             else
                 MessageBox.Show(operionResult.Message);
@@ -58,11 +87,11 @@ namespace Mnager
                 txtFirstName.Text = student.FirstName;
                 txtLastName.Text = student.LastName;
                 txtFirstName.Focus();
-                if (student.Grade == "Elementary")
+                if (student.GetGrade == "ابتدایی")
                     rdbElementary.Checked = true;
-                else if (student.Grade == "Middle")
+                else if (student.GetGrade == "راهنمایی")
                     rdbGuidance.Checked = true;
-                else if (student.Grade == "High")
+                else if (student.GetGrade == "هنرستان")
                     rdbConservatory.Checked = true;
             }
             else rdbElementary.Checked = true;

@@ -42,7 +42,7 @@ namespace Mnager
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FrmPerson frmPerson = new FrmPerson{
+            FrmPerson frmPerson = new FrmPerson(FillDgV){
                 Text = "Add Person"
             };
             frmPerson.OnFillDgv += FrmPerson_OnFillDgv;
@@ -76,7 +76,7 @@ namespace Mnager
             if (e.ColumnIndex == dgvPerson.Columns[colEdite.Name].Index)
             {
                 var person = dgvPerson.Rows[e.RowIndex].DataBoundItem as Person;
-                FrmPerson frmPerson = new FrmPerson
+                FrmPerson frmPerson = new FrmPerson(FillDgV)
                 {
                     Text = $"Edite {person.GetFullName}",
                     Person = person

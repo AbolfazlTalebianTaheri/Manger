@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.grbGrade = new System.Windows.Forms.GroupBox();
+            this.rdbConservatory = new System.Windows.Forms.RadioButton();
+            this.rdbGuidance = new System.Windows.Forms.RadioButton();
+            this.rdbElementary = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConf = new System.Windows.Forms.Button();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.rdbElementary = new System.Windows.Forms.RadioButton();
-            this.rdbGuidance = new System.Windows.Forms.RadioButton();
-            this.rdbConservatory = new System.Windows.Forms.RadioButton();
             this.grbGrade.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,39 @@
             this.grbGrade.TabIndex = 2;
             this.grbGrade.TabStop = false;
             this.grbGrade.Text = "مقطع تحصیلی";
+            // 
+            // rdbConservatory
+            // 
+            this.rdbConservatory.AutoSize = true;
+            this.rdbConservatory.Location = new System.Drawing.Point(102, 73);
+            this.rdbConservatory.Name = "rdbConservatory";
+            this.rdbConservatory.Size = new System.Drawing.Size(71, 20);
+            this.rdbConservatory.TabIndex = 0;
+            this.rdbConservatory.TabStop = true;
+            this.rdbConservatory.Text = "هنرستان";
+            this.rdbConservatory.UseVisualStyleBackColor = true;
+            // 
+            // rdbGuidance
+            // 
+            this.rdbGuidance.AutoSize = true;
+            this.rdbGuidance.Location = new System.Drawing.Point(99, 47);
+            this.rdbGuidance.Name = "rdbGuidance";
+            this.rdbGuidance.Size = new System.Drawing.Size(74, 20);
+            this.rdbGuidance.TabIndex = 0;
+            this.rdbGuidance.TabStop = true;
+            this.rdbGuidance.Text = "راهنمایی";
+            this.rdbGuidance.UseVisualStyleBackColor = true;
+            // 
+            // rdbElementary
+            // 
+            this.rdbElementary.AutoSize = true;
+            this.rdbElementary.Location = new System.Drawing.Point(112, 21);
+            this.rdbElementary.Name = "rdbElementary";
+            this.rdbElementary.Size = new System.Drawing.Size(61, 20);
+            this.rdbElementary.TabIndex = 0;
+            this.rdbElementary.TabStop = true;
+            this.rdbElementary.Text = "ابتدایی";
+            this.rdbElementary.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -108,39 +141,6 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 22);
             this.txtFirstName.TabIndex = 8;
-            // 
-            // rdbElementary
-            // 
-            this.rdbElementary.AutoSize = true;
-            this.rdbElementary.Location = new System.Drawing.Point(112, 21);
-            this.rdbElementary.Name = "rdbElementary";
-            this.rdbElementary.Size = new System.Drawing.Size(61, 20);
-            this.rdbElementary.TabIndex = 0;
-            this.rdbElementary.TabStop = true;
-            this.rdbElementary.Text = "ابتدایی";
-            this.rdbElementary.UseVisualStyleBackColor = true;
-            // 
-            // rdbGuidance
-            // 
-            this.rdbGuidance.AutoSize = true;
-            this.rdbGuidance.Location = new System.Drawing.Point(99, 47);
-            this.rdbGuidance.Name = "rdbGuidance";
-            this.rdbGuidance.Size = new System.Drawing.Size(74, 20);
-            this.rdbGuidance.TabIndex = 0;
-            this.rdbGuidance.TabStop = true;
-            this.rdbGuidance.Text = "راهنمایی";
-            this.rdbGuidance.UseVisualStyleBackColor = true;
-            // 
-            // rdbConservatory
-            // 
-            this.rdbConservatory.AutoSize = true;
-            this.rdbConservatory.Location = new System.Drawing.Point(51, 73);
-            this.rdbConservatory.Name = "rdbConservatory";
-            this.rdbConservatory.Size = new System.Drawing.Size(122, 20);
-            this.rdbConservatory.TabIndex = 0;
-            this.rdbConservatory.TabStop = true;
-            this.rdbConservatory.Text = "دبیرستان /هنرستان";
-            this.rdbConservatory.UseVisualStyleBackColor = true;
             // 
             // FrmStudent
             // 

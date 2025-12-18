@@ -28,16 +28,19 @@ namespace Mnager
         }
         void FillDgv()
         {
-            dgvStudent.DataSource= studentManager.GetAll().ToList();
+            List<Student> students = studentManager.GetAll().ToList();
+            int count = studentManager.Count();
+            for (int i = 0; i < count; i++)
+                students[i].StudentCode = i;
+            dgvStudent.DataSource = students.ToList();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var frmStudent = new FrmStudent
+            var frmStudent = new FrmStudent(FillDgv)
             {
                 Text = "Add Student"
             };
             frmStudent.ShowDialog();
-            FillDgv();
         }
 
 
@@ -63,13 +66,12 @@ namespace Mnager
                 var student = dgvStudent.Rows[e.RowIndex].DataBoundItem as Student;
                 if (student != null)
                 {
-                    var frmStudent = new FrmStudent()
+                    var frmStudent = new FrmStudent(FillDgv)
                     {
-                        Text = "Edit Student",
+                        Text = $"Edit Student {student.GetFullName}",
                         student = student
                     };
                     frmStudent.ShowDialog();
-                    FillDgv();
                 }
             }
         }

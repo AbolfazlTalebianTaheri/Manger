@@ -16,10 +16,12 @@ namespace Mnager
         public event FillDgv OnFillDgv; // اسم رو ود هوش مصنوعی پیشنهاد داد
         PersonManger personManger;
         public Person Person { get; set; }
-        public FrmPerson()
+        Action _action;
+        public FrmPerson(Action action)
         {
             InitializeComponent();
             personManger = new PersonManger();
+            _action = action;
         }
 
         private void FrmPerson_Load(object sender, EventArgs e)
@@ -79,6 +81,8 @@ namespace Mnager
                     Person.Gender = Genders.Unknown;
                 if (!isEdite)
                     personManger.Add(Person);
+                if (_action != null)
+                    _action();
                 MessageBox.Show(operionResult.Message);
                 TxtClear();
                 OnFillDgv();
