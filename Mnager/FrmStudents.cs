@@ -26,7 +26,7 @@ namespace Mnager
                 e.Cancel = true;
            DialogResult = DialogResult.OK;
         }
-        void FillDgv()
+        void FillDgv() 
         {
             List<Student> students = studentManager.GetAll().ToList();
             int count = studentManager.Count();
