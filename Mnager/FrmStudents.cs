@@ -33,7 +33,7 @@ namespace Mnager
             for (int i = 0; i < count; i++)
                 students[i].StudentCode = i;
             dgvStudent.DataSource = students.ToList();
-        }
+        } 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var frmStudent = new FrmStudent(FillDgv)
