@@ -43,7 +43,7 @@
         {
             if (string.IsNullOrEmpty(firstName))
                 return new OperionResult
-                {
+                { 
                     IsSuccess = false,
                     Message = "کادر نام پر کنید"
                 };
